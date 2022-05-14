@@ -74,13 +74,13 @@ export default App
 
 | Property                 |   Type              | Require  |  Default | Description                                                                     |
 | ------------------------ | :-----------------: | :-------:| :-------:| :------------------------------------------------------------------------------ |
-| variant                  | string              |  true    | ...      | Skeleton type (circle, rect, text)                                              |
-| width                    | string or number    |  false   | 100px    | The width of the skeleton                                                       |
-| height                   | string or number    |  false   | 100px    | The height of each skeleton line                                                |
-| borderRadius             | string or number    |  false   | 10px     | The border radius of the skeleton                                               |
-| style                    | React.CSSProperties |  false   | ...      | Apply a style to your skeleton                                                  |
-| count                    | number              |  false   | 1        | The number of lines of skeletons to render.                                     |
-| className                | string              |  false   | ...      |  A custom class name for the individual skeleton elements  
+| name                  | string              |  false    | country      | name of input                                              |
+| containerClass                    | string    |  false   | ...    | ClassName of select container                                                      |
+| onChange                   | function    |  true   | ...   | Callback that gets called when the user selects a country. Use this to store the value in whatever store you're using.                                               |
+| optionClass             | string    |  false   | ...     | ClassName of label container                                             |
+| styleContainer                    | React.CSSProperties |  false   | ...      | Apply a style to the select container                                                  |
+| value                    | number              |  true   | ...        | The currently selected country.                                     |
+| placeholder                | string              |  false   | "Select Country"      |  The default option label.  
 
 ## License
 
