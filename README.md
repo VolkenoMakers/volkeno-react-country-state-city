@@ -86,13 +86,29 @@ export default App
 
 | Property                 |   Type              | Require  |  Default | Description                                                                     |
 | ------------------------ | :-----------------: | :-------:| :-------:| :------------------------------------------------------------------------------ |
-| name                  | string              |  false    | country      | name of input                                              |
+| country                  | object              |  true    | ...      | The currently selected country.
+| name                  | string              |  false    | state      | name of input                                              |
 | containerClass                    | string    |  false   | ...    | ClassName of select container                                                      |
-| onChange                   | function    |  true   | ...   | Callback that gets called when the user selects a country. Use this to store the value in whatever store you're using.                                               |
+| onChange                   | function    |  true   | ...   | Callback that gets called when the user selects a state. Use this to store the value in whatever store you're using.                                               |
 | optionClass             | string    |  false   | ...     | ClassName of label container                                             |
 | styleContainer                    | React.CSSProperties |  false   | ...      | Apply a style to the select container                                                  |
 | value                    | number              |  true   | ...        | The currently selected country.                                     |
-| placeholder                | string              |  false   | "Select Country"      |  The default option label.  
+| placeholder                | string              |  false   | "Select State"      |  The default option label.
+| countryPlaceholder                | string              |  false   | "Select Country"      |  The label that appears in the state dropdown when the user hasn't selected a country yet. 
+
+```<CitySelector/>```
+
+| Property                 |   Type              | Require  |  Default | Description                                                                     |
+| ------------------------ | :-----------------: | :-------:| :-------:| :------------------------------------------------------------------------------ |
+| state                  | object              |  true    | ...      | The currently selected state.
+| name                  | string              |  false    | city      | name of input                                              |
+| containerClass                    | string    |  false   | ...    | ClassName of select container                                                      |
+| onChange                   | function    |  true   | ...   | Callback that gets called when the user selects a state. Use this to store the value in whatever store you're using.                                               |
+| optionClass             | string    |  false   | ...     | ClassName of label container                                             |
+| styleContainer                    | React.CSSProperties |  false   | ...      | Apply a style to the select container                                                  |
+| value                    | number              |  true   | ...        | The currently selected state.                                     |
+| placeholder                | string              |  false   | "Select State"      |  The default option label.
+| statePlaceholder                | string              |  false   | "Select State"      |  The label that appears in the state dropdown when the user hasn't selected a state yet.  
 
 ## License
 
