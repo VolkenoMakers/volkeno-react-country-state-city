@@ -70,7 +70,7 @@ export default App
 
 ## Configuration - Props
 
-# <CountrySelector/>
+```<CountrySelector/>```
 
 | Property                 |   Type              | Require  |  Default | Description                                                                     |
 | ------------------------ | :-----------------: | :-------:| :-------:| :------------------------------------------------------------------------------ |
