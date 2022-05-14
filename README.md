@@ -82,6 +82,18 @@ export default App
 | value                    | number              |  true   | ...        | The currently selected country.                                     |
 | placeholder                | string              |  false   | "Select Country"      |  The default option label.  
 
+```<StateSelector/>```
+
+| Property                 |   Type              | Require  |  Default | Description                                                                     |
+| ------------------------ | :-----------------: | :-------:| :-------:| :------------------------------------------------------------------------------ |
+| name                  | string              |  false    | country      | name of input                                              |
+| containerClass                    | string    |  false   | ...    | ClassName of select container                                                      |
+| onChange                   | function    |  true   | ...   | Callback that gets called when the user selects a country. Use this to store the value in whatever store you're using.                                               |
+| optionClass             | string    |  false   | ...     | ClassName of label container                                             |
+| styleContainer                    | React.CSSProperties |  false   | ...      | Apply a style to the select container                                                  |
+| value                    | number              |  true   | ...        | The currently selected country.                                     |
+| placeholder                | string              |  false   | "Select Country"      |  The default option label.  
+
 ## License
 
 MIT © [VolkenoMakers](https://github.com/VolkenoMakers)
