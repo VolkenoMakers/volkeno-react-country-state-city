@@ -108,7 +108,7 @@ export default App
 | styleContainer                    | React.CSSProperties |  false   | ...      | Apply a style to the select container                                                  |
 | value                    | number              |  true   | ...        | The currently selected state.                                     |
 | placeholder                | string              |  false   | "Select State"      |  The default option label.
-| statePlaceholder                | string              |  false   | "Select State"      |  The label that appears in the state dropdown when the user hasn't selected a state yet.  
+| statePlaceholder                | string              |  false   | "Select State"      |  The label that appears in the city dropdown when the user hasn't selected a state yet.  
 
 ## License
 
