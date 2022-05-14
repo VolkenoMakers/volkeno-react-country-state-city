@@ -1,9 +1,29 @@
 /* add css module styles here (optional) */
 
-.test {
-  margin: 2em;
+.selectContainer {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
   padding: 0.5em;
-  border: 2px solid #000;
   font-size: 2em;
-  text-align: center;
+}
+
+.selectClass {
+  font-size: 15px;
+  border: none;
+}
+
+.label {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 15px;
+}
+
+.countryName {
+  margin-left: 2%;
+}
+
+.flag {
+  width: fit-content;
+  height: 1rem;
 }
