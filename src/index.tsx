@@ -5,91 +5,14 @@ import axios from 'axios'
 import styles from './styles.module.css'
 import CountriesJson from './DataJson/Countries.json'
 
-type OptionProps = {
-  id: number
-  name: string
-  iso3: string
-  iso2: string
-  numeric_code: string | number
-  phone_code: number | string
-  capital: string
-  currency: string
-  currency_name: string
-  currency_symbol: string
-  tld: string
-  native: string
-  region: string
-  subregion: string
-  timezones: string
-  latitude: string
-  longitude: string
-  emoji: string
-  emojiU: string
-  label: string | any
-  value: string
-}
-
-type StateOptions = {
-  id: number
-  name: string
-  country_id: number
-  country_code: string
-  country_name: string
-  state_code: string
-  type: string
-  latitude: string | number
-  longitude: string | number
-  label?: string
-  value?: string
-}
-
-type CityOptions = {
-  id: number
-  name: string
-  state_id: number
-  state_code: string
-  state_name: string
-  country_id: number
-  country_code: string
-  country_name: string
-  latitude: string | number
-  longitude: string | number
-  wikiDataId: string
-  label: string
-  value: string
-}
-
-interface CountrySelectorProps {
-  name?: string
-  containerClass?: string
-  styleContainer?: React.CSSProperties
-  onChange?: (country: OptionProps) => any
-  optionClass?: string
-  value?: OptionProps
-  placeholder?: string
-}
-
-interface StateSelectorProps {
-  name?: string
-  containerClass?: string
-  styleContainer?: React.CSSProperties
-  onChange?: (state: StateOptions) => any
-  value?: OptionProps
-  placeholder?: string
-  countryPlaceholder?: string
-  country?: OptionProps
-}
-
-interface CitySelectorProps {
-  name?: string
-  containerClass?: string
-  styleContainer?: React.CSSProperties
-  onChange?: (city: CityOptions) => any
-  value?: OptionProps
-  placeholder?: string
-  statePlaceholder?: string
-  state?: StateOptions
-}
+import {
+  CityOptions,
+  CitySelectorProps,
+  CountrySelectorProps,
+  OptionProps,
+  StateOptions,
+  StateSelectorProps
+} from './hooks/type'
 
 let allStates: any = []
 let allCities: any = []
@@ -102,10 +25,10 @@ axios
   .get(
     'https://raw.githubusercontent.com/mbaye19/country-data/main/States.json'
   )
-  .then((response) => {
+  .then((response: any) => {
     allStates = response?.data
   })
-  .catch((err) => {
+  .catch((err: any) => {
     console.log('err', err)
     // loading = false
   })
@@ -114,10 +37,10 @@ axios
   .get(
     'https://raw.githubusercontent.com/mbaye19/country-data/main/Cities.json'
   )
-  .then((response) => {
+  .then((response: any) => {
     allCities = response?.data
   })
-  .catch((err) => {
+  .catch((err: any) => {
     console.log('err', err)
   })
 
@@ -129,9 +52,29 @@ export const CountrySelector = (props: CountrySelectorProps) => {
     onChange,
     optionClass,
     value,
-    placeholder
+    placeholder,
+    countriesIso
   } = props
-  const countries = CountriesJson.map((country) => {
+  let countries = CountriesJson
+  if(countriesIso){
+    countries = CountriesJson.filter(country => countriesIso.includes(country?.iso2)).map((country) => {
+      return {
+        value: country.iso2,
+        label: (
+          <div className={`${styles.label}${optionClass}`}>
+            <img
+              src={`http://purecatamphetamine.github.io/country-flag-icons/3x2/${country.iso2}.svg`}
+              alt='flag'
+              className={styles.flag}
+            />
+            <span className={styles.countryName}>{country.name}</span>
+          </div>
+        ),
+        ...country
+      }
+    })
+  } else {
+  countries = CountriesJson.map((country) => {
     return {
       value: country.iso2,
       label: (
@@ -147,6 +90,9 @@ export const CountrySelector = (props: CountrySelectorProps) => {
       ...country
     }
   })
+}
+    
+  
 
   let selectedOption: OptionProps | any = ''
 
